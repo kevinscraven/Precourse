@@ -136,6 +136,7 @@ function addCalculateDiscountPriceMethod(storeItem) {
     let discountPrice = this.price - savings;
     return discountPrice;
   };
+  return storeItem;
 }
 
 // Do not modify code below this line.
