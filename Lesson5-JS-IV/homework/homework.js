@@ -1,45 +1,83 @@
 // Do not change any of the function names
 
-function multiplyArguments() {
-  // use the arguments keyword to multiply all of the arguments together and return the product
+// use the arguments keyword to multiply all of the arguments together and return the product
   // if no arguments are passed in return 0
   // if one argument is passed in just return it
-}
+
+  function multiplyArguments() {
+    let product = 1;
+    if(arguments[0] === undefined){
+      product = 0;
+      return product;
+    }else {
+      for(let i = 0; i < arguments.length; i++){
+      product = product * arguments[i];
+    }
+  return product;
+  }
+  }
+  
+    
+  
 
 function invokeCallback(cb) {
   // invoke cb
+  return cb();
 }
 
 function sumArray(numbers, cb) {
   // sum up all of the integers in the numbers array
   // pass the result to cb
   // no return is necessary
+  let sum = 0;
+  for(let i = 0; i < numbers.length; i++){
+    sum = sum + numbers[i];
+  }
+  cb(sum);
 }
 
 function forEach(arr, cb) {
   // iterate over arr and pass its values to cb one by one
   // hint: you will be invoking cb multiple times (once for each value in the array)
+  arr.forEach(cb);
 }
 
 function map(arr, cb) {
   // create a new array
   // iterate over each value in arr, pass it to cb, then place the value returned from cb into the new arr
   // the new array should be the same length as the array argument
+  let cbApp = arr.map(cb);
+  return cbApp;
 }
 
-function createUserClass() {
-  // create a class constructor called User
+ // create a class constructor called User
   // it should accept an options object with username, name, email, and password properties
   // in the constructor set the username, name, email, and password properties
   // the constructor should have a method 'sayHi' on its prototype that returns the string 'Hello, my name is {{name}}'
   // {{name}} should be the name set on each instance
   // return the constructor
-}
+  function createUserClass() {
+    class User {
+     constructor(options) {
+      this.username = options.username;
+      this.name = options.name;
+      this.email = options.email;
+      this.password = options.password;
+      }
+    }
+    User.prototype.sayHi = function(){
+      return('Hello, my name is ' + this.name);
+    }
+    return User;
+  }
 
-function addPrototypeMethod(Constructor) {
-  // add a method to the constructor's prototype
-  // the method should be called 'sayHi' and should return the string 'Hello World!'
-}
+  function addPrototypeMethod(Constructor) {
+    // add a method to the constructor's prototype
+    // the method should be called 'sayHi' and should return the string 'Hello World!'
+  Constructor.prototype.sayHi = function(){
+    return 'Hello World!';
+  }
+  }
 
 // !! This is the end of the homework exercises !!
 
